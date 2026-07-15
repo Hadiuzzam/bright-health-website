@@ -42,9 +42,141 @@ const copy = {
 }
 
 const doctors = [
-  { initials: 'MR', name: { en: 'Dr. Mahmudur Rahman', bn: 'ডা. মাহমুদুর রহমান' }, role: { en: 'Consultant, Internal Medicine', bn: 'কনসালট্যান্ট, মেডিসিন' }, exp: 'MBBS, FCPS (Medicine)', time: 'available' },
-  { initials: 'SA', name: { en: 'Dr. Sadia Afrin', bn: 'ডা. সাদিয়া আফরিন' }, role: { en: 'Consultant, Obstetrics & Gynaecology', bn: 'কনসালট্যান্ট, প্রসূতি ও স্ত্রীরোগ' }, exp: 'MBBS, FCPS (Gynae & Obs)', time: 'next' },
-  { initials: 'NH', name: { en: 'Dr. Nazmul Haque', bn: 'ডা. নাজমুল হক' }, role: { en: 'Consultant, Paediatrics', bn: 'কনসালট্যান্ট, শিশু বিভাগ' }, exp: 'MBBS, DCH, FCPS', time: 'available' }
+  {
+    initials: 'HI',
+    name: { en: 'Dr. Homayara Islam', bn: 'ডা. হোমায়ারা ইসলাম' },
+    role: { en: 'Surgery Specialist', bn: 'সার্জারি বিশেষজ্ঞ' },
+    exp: 'MBBS, BCS (Health), FCPS (Surgery), MCPS (Surgery)',
+    schedule: { en: 'Sun, Mon & Tue from 3 PM', bn: 'রবি, সোম ও মঙ্গলবার দুপুর ৩টা হতে' },
+    services: { en: 'Gallstone, appendix, hernia, piles, fistula and soft tissue tumor surgery', bn: 'পিত্তথলির পাথর, অ্যাপেন্ডিক্স, হার্নিয়া, পাইলস, ফিস্টুলা ও টিউমার অপারেশন' },
+    time: 'available'
+  },
+  {
+    initials: 'SS',
+    name: { en: 'Dr. Shah Sohel', bn: 'ডা. শাহ সোহেল' },
+    role: { en: 'ENT Specialist & Head-Neck Surgeon', bn: 'নাক, কান, গলা রোগ বিশেষজ্ঞ ও হেড-নেক সার্জন' },
+    exp: 'MBBS, BCS (Health), MS (ENT)',
+    schedule: { en: 'Daily from 4 PM (Fri & Tue closed)', bn: 'প্রতিদিন বিকাল ৪টা হতে (শুক্র ও মঙ্গলবার বন্ধ)' },
+    services: { en: 'Ear pain, hearing loss, sinusitis, tonsil, throat and neck problems', bn: 'কান ব্যথা, কম শোনা, সাইনাস, টনসিল, গলা ও ঘাড়ের সমস্যা' },
+    time: 'available'
+  },
+  {
+    initials: 'AM',
+    name: { en: 'Dr. Md. Abdullah Al Mamun', bn: 'ডা. মোঃ আব্দুল্লাহ আল মামুন' },
+    role: { en: 'Diabetes, Medicine, Mother & Child Disease Specialist', bn: 'ডায়াবেটিস, মেডিসিন এবং মা ও শিশু রোগ অভিজ্ঞ' },
+    exp: 'MBBS, PGT (Medicine), CCD (Diabetes), CMU (Ultra)',
+    schedule: { en: 'Daily 9 AM - 3 PM (Saturday closed)', bn: 'প্রতিদিন সকাল ৯টা হতে দুপুর ৩টা পর্যন্ত (শনিবার বন্ধ)' },
+    services: { en: 'Diabetes, blood pressure, respiratory illness, mother and child care', bn: 'ডায়াবেটিস, উচ্চ রক্তচাপ, শ্বাসকষ্ট, মা ও শিশু, মেডিসিন সেবা' },
+    time: 'available'
+  },
+  {
+    initials: 'KA',
+    name: { en: 'Dr. Md. Abdul Kalam Azad', bn: 'ডা. মোঃ আব্দুল কালাম আজাদ' },
+    role: { en: 'Skin & Venereal Disease Specialist', bn: 'চর্ম ও যৌনরোগ বিশেষজ্ঞ' },
+    exp: 'MBBS, BCS (Health), MD (Skin & VD)',
+    schedule: { en: 'Tue & Wed, 7 PM - 9 PM', bn: 'প্রতি মঙ্গলবার ও বুধবার সন্ধ্যা ৭টা হতে রাত ৯টা পর্যন্ত' },
+    services: { en: 'Skin disease, allergy, acne, eczema, hair and sexual health problems', bn: 'চুলকানি, দাউদ, অ্যালার্জি, ত্বকের দাগ, ব্রণ, চুল ও যৌন সমস্যা' },
+    time: 'next'
+  },
+  {
+    initials: 'AL',
+    name: { en: 'Dr. Md. Abdullah Al Lihin', bn: 'ডা. মোঃ আব্দুল্লাহ আল লিহিন' },
+    role: { en: 'ENT Specialist', bn: 'নাক, কান ও গলা রোগ অভিজ্ঞ' },
+    exp: 'MBBS, PGT (ENT), CMU (Ultra)',
+    schedule: { en: 'Daily 9 AM - 2 PM; Friday 9 AM - 9 PM', bn: 'প্রতিদিন সকাল ৯টা থেকে দুপুর ২টা; শুক্রবার সকাল ৯টা থেকে রাত ৯টা' },
+    services: { en: 'Ear, nose and throat care, sinus, tonsil, allergy and gastritis-related throat issues', bn: 'কান, নাক ও গলা, সাইনাস, টনসিল, অ্যালার্জি ও গলা সমস্যা' },
+    time: 'available'
+  },
+  {
+    initials: 'SH',
+    name: { en: 'Dr. Md. Shamim Hossain', bn: 'ডা. মোঃ শামীম হোসেন' },
+    role: { en: 'Orthopedic Specialist & Trauma Surgeon', bn: 'হাড় ভাঙ্গা-জোড়া, মেরুদণ্ড ও বাত ব্যথা বিশেষজ্ঞ' },
+    exp: 'MBBS (DU), D-Ortho (BSMMU)',
+    schedule: { en: 'Thu 10 AM - 3 PM; Fri 3 PM - 8 PM', bn: 'বৃহস্পতিবার সকাল ১০টা থেকে বিকাল ৩টা; শুক্রবার ৩টা থেকে ৮টা' },
+    services: { en: 'Bone fracture, osteoporosis, spine, hand, foot and injury-related pain', bn: 'হাড় ক্ষয়, ব্যথা, অস্টিওপোরোসিস, ফ্র্যাকচার, হাত-পা ও মেরুদণ্ড সমস্যা' },
+    time: 'next'
+  },
+  {
+    initials: 'SG',
+    name: { en: 'Dr. Md. Shamsul Huda Sarkar (Sagar)', bn: 'ডা. মোঃ শামসুল হুদা সরকার (সাগর)' },
+    role: { en: 'Dermatology, Allergy & Dermatosurgeon', bn: 'চর্ম, এলার্জি, যৌনরোগ বিশেষজ্ঞ ও ডার্মাটোসার্জন' },
+    exp: 'MBBS, BCS (Health), DDV (BSMMU), CCD (BIRDEM)',
+    schedule: { en: 'Mon - Thu from 2 PM', bn: 'প্রতি সোম থেকে বৃহস্পতিবার দুপুর ২টা হতে' },
+    services: { en: 'Acne, eczema, allergy, psoriasis, skin spots, hair and cosmetic dermatology', bn: 'ব্রণ, মেছতা, চুলকানি, একজিমা, এলার্জি, চুল পড়া ও ত্বকের সমস্যা' },
+    time: 'available'
+  },
+  {
+    initials: 'ZH',
+    name: { en: 'Dr. K M Zakir Hasan', bn: 'ডা. কে এম জাকির হাসান' },
+    role: { en: 'Child & Adolescent Specialist', bn: 'শিশু ও কিশোর বিশেষজ্ঞ' },
+    exp: 'MBBS, BCS (Health), DCH (Pediatrics), PGPN (Boston University)',
+    schedule: { en: 'Sat, Sun & Tue, 3 PM - 8 PM', bn: 'প্রতি শনি, রবি ও মঙ্গলবার বিকাল ৩টা থেকে রাত ৮টা পর্যন্ত' },
+    services: { en: 'Newborn care, child fever, cough, nutrition, kidney disease and development concerns', bn: 'নবজাতক, শিশু জ্বর, কাশি, পুষ্টি, কিডনি রোগ ও মানসিক-শারীরিক বিকাশ সমস্যা' },
+    time: 'available'
+  },
+  {
+    initials: 'AA',
+    name: { en: 'Dr. Arifa Ahmed', bn: 'ডা. আরিফা আহমেদ' },
+    role: { en: 'Gynecology & Obstetrics Specialist', bn: 'প্রসূতি ও গাইনি রোগ বিশেষজ্ঞ' },
+    exp: 'MBBS, BCS (Health), MS (Gynae & Obs)',
+    schedule: { en: 'Daily 4 PM - 8 PM (Fri & Sat closed)', bn: 'প্রতিদিন বিকাল ৪টা হতে রাত ৮টা পর্যন্ত (শুক্র ও শনিবার বন্ধ)' },
+    services: { en: 'Pregnancy care, infertility, menstrual disorders, urinary issues and gynecological surgery', bn: 'গর্ভবতী মায়ের চিকিৎসা, সন্তান না হওয়া, তলপেট ব্যথা, সাদা স্রাব ও গাইনি অপারেশন' },
+    time: 'next'
+  },
+  {
+    initials: 'RH',
+    name: { en: 'Dr. Md. Rafiqul Hasan', bn: 'ডা. মোঃ রাফিকুল হাসান' },
+    role: { en: 'Neuromedicine Specialist', bn: 'নিউরোমেডিসিন বিশেষজ্ঞ' },
+    exp: 'MBBS, BCS (Health), MD (Neurology)',
+    schedule: { en: 'Friday 9 AM - 6 PM', bn: 'প্রতি শুক্রবার সকাল ৯টা হতে সন্ধ্যা ৬টা' },
+    services: { en: 'Headache, stroke, paralysis, epilepsy, Parkinson’s, nerve and brain problems', bn: 'মাথা ব্যথা, স্ট্রোক, প্যারালাইসিস, মৃগী, পারকিনসন, ব্রেইন ও নার্ভ সমস্যা' },
+    time: 'next'
+  },
+  {
+    initials: 'MZ',
+    name: { en: 'Dr. Md. Mamunuzzaman', bn: 'ডা. মোঃ মামুনুজ্জামান' },
+    role: { en: 'Cardiology Specialist', bn: 'হৃদরোগ বিশেষজ্ঞ' },
+    exp: 'MBBS, BCS (Health), MD (Cardiology)',
+    schedule: { en: 'Mon, Tue & Wed from 9 PM', bn: 'প্রতি সোম, মঙ্গল ও বুধবার রাত ৯টা হতে' },
+    services: { en: 'Hypertension, chest pain, heart valve issues, arrhythmia, congenital heart disease', bn: 'উচ্চ রক্তচাপ, বুকে ব্যথা, হার্টের ভাল্বের সমস্যা, অনিয়মিত হৃদস্পন্দন ও হৃদরোগ' },
+    time: 'available'
+  },
+  {
+    initials: 'TL',
+    name: { en: 'Dr. Talha Bin Lufar', bn: 'ডা. তালহা বিন লুফার' },
+    role: { en: 'Trauma, Spine, Hand & Arthroplasty Surgeon', bn: 'ট্রমা, স্পাইন, হ্যান্ড ও অর্থোপ্লাস্টি সার্জন' },
+    exp: 'MBBS, D-Ortho',
+    schedule: { en: 'Sat, Mon, Wed, Thu & Fri 7-9 AM and 2:30-9 PM; Sun & Tue from 7 PM', bn: 'শনি, সোম, বুধ, বৃহস্পতি ও শুক্রবার সকাল ৭-৯টা এবং দুপুর ২:৩০-রাত ৯টা; রবি ও মঙ্গলবার সন্ধ্যা ৭টা হতে' },
+    services: { en: 'Fracture, ligament, joint replacement, arthritis, spine and injury-related pain', bn: 'হাড় ভাঙ্গা, লিগামেন্ট, জয়েন্ট প্রতিস্থাপন, বাত ব্যথা, স্পাইন ও আঘাতজনিত সমস্যা' },
+    time: 'available'
+  },
+  {
+    initials: 'SR',
+    name: { en: 'Dr. Sumon Kumar Roy', bn: 'ডা. সুমন কুমার রায়' },
+    role: { en: 'Medicine & Cardiology Specialist', bn: 'মেডিসিন ও হৃদরোগ বিশেষজ্ঞ' },
+    exp: 'MBBS, BCS (Health), MD (Internal Medicine)',
+    schedule: { en: 'Daily from 4 PM (Friday closed)', bn: 'প্রতিদিন বিকাল ৪টা হতে (শুক্রবার বন্ধ)' },
+    services: { en: 'Medicine care, diabetes, blood pressure, arthritis, headache, asthma, allergy and liver problems', bn: 'মেডিসিন, ডায়াবেটিস, উচ্চ রক্তচাপ, বাত-ব্যথা, মাথা ব্যথা, শ্বাসকষ্ট, এলার্জি ও লিভার সমস্যা' },
+    time: 'available'
+  },
+  {
+    initials: 'MH',
+    name: { en: 'Dr. Mohammad Mehdi Hasan', bn: 'ডা. মোহাম্মদ মেহেদী হাসান' },
+    role: { en: 'Physical Medicine & Rehabilitation Specialist', bn: 'ফিজিক্যাল মেডিসিন এন্ড রিহ্যাবিলিটেশন বিশেষজ্ঞ' },
+    exp: 'MBBS, MD (Physical Medicine & Rehabilitation), BCS (Health), CCD (BIRDEM)',
+    schedule: { en: 'Sun, Mon & Tue from 4:30 PM', bn: 'প্রতি রবি, সোম ও মঙ্গলবার বিকাল ৪:৩০ মিনিট থেকে' },
+    services: { en: 'Back pain, joint pain, neck pain, stroke, paralysis, Bell’s palsy, PRP and nerve block therapy', bn: 'কোমর ব্যথা, ঘাড় ব্যথা, জয়েন্ট ব্যথা, স্ট্রোক, প্যারালাইসিস, বেলস পালসি, PRP ও নার্ভ ব্লক' },
+    time: 'next'
+  },
+  {
+    initials: 'JA',
+    name: { en: 'Dr. Md. Joynal Abedin', bn: 'ডা. মোঃ জয়নাল আবেদীন' },
+    role: { en: 'ENT Specialist & Head-Neck Surgeon', bn: 'নাক, কান, গলা রোগ বিশেষজ্ঞ এবং হেড-নেক সার্জন' },
+    exp: 'MBBS, BCS (Health), DLO, MCPS (ENT)',
+    schedule: { en: 'Sat & Sun from 2 PM', bn: 'শনি ও রবিবার দুপুর ২টা হতে' },
+    services: { en: 'Ear pain, hearing problems, sinus, tonsil, throat, thyroid and ENT surgery', bn: 'কান ব্যথা, কম শোনা, সাইনাস, টনসিল, গলা, থাইরয়েড ও ইএনটি সার্জারি' },
+    time: 'available'
+  }
 ]
 
 const icons = {
@@ -70,18 +202,61 @@ export default function App() {
   const [menu, setMenu] = useState(false)
   const [modal, setModal] = useState(false)
   const [sent, setSent] = useState(false)
+  const [doctorListOpen, setDoctorListOpen] = useState(false)
   const [query, setQuery] = useState('')
   const t = copy[lang]
-  const filteredDoctors = useMemo(() => doctors.filter(d => `${d.name[lang]} ${d.role[lang]}`.toLowerCase().includes(query.toLowerCase())), [query, lang])
+  const filteredDoctors = useMemo(() => doctors.filter(d => `${d.name[lang]} ${d.role[lang]} ${d.exp} ${d.services[lang]} ${d.schedule[lang]}`.toLowerCase().includes(query.toLowerCase())), [query, lang])
+  const flowDoctors = filteredDoctors.length ? [...filteredDoctors, ...filteredDoctors] : []
 
   useEffect(() => {
     document.documentElement.lang = lang === 'bn' ? 'bn' : 'en'
-    document.body.classList.toggle('modal-open', modal)
+    document.body.classList.toggle('modal-open', modal || doctorListOpen)
     return () => document.body.classList.remove('modal-open')
-  }, [lang, modal])
+  }, [lang, modal, doctorListOpen])
 
-  const openBooking = () => { setSent(false); setModal(true); setMenu(false) }
+  const openBooking = () => { setSent(false); setDoctorListOpen(false); setModal(true); setMenu(false) }
   const scrollTo = id => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); setMenu(false) }
+  const doctorImageStyle = doctor => {
+    const imageIndexByDoctor = {
+      HI: 3,
+      AA: 9,
+      SS: 0,
+      AM: 2,
+      KA: 5,
+      AL: 7,
+      SH: 8,
+      SG: 10,
+      ZH: 13,
+      RH: 15,
+      MZ: 0,
+      TL: 2,
+      SR: 5,
+      MH: 7,
+      JA: 8
+    }
+    const imageIndex = imageIndexByDoctor[doctor.initials] ?? 0
+    const keepAsIs = new Set(['HI', 'SS', 'AM', 'MZ', 'TL'])
+    const yBase = Math.floor(imageIndex / 4) * 33.333333
+    const yLiftByDoctor = {
+      KA: 5,
+      AL: 7,
+      SH: 10,
+      SG: 10,
+      ZH: 12,
+      RH: 8,
+      SR: 6,
+      MH: 7,
+      JA: 7,
+      AA: 8
+    }
+    const yPosition = keepAsIs.has(doctor.initials)
+      ? yBase
+      : Math.max(0, yBase - (yLiftByDoctor[doctor.initials] ?? 8))
+    return {
+      backgroundImage: `url(${asset("ai-doctors-sheet.png")})`,
+      backgroundPosition: `${(imageIndex % 4) * 33.333333}% ${yPosition}%`
+    }
+  }
   const footerHospitalTargets = ['about', 'doctors', 'services', 'contact']
   const footerPatientActions = [openBooking, () => scrollTo('packages'), () => scrollTo('app'), () => scrollTo('contact')]
 
@@ -112,7 +287,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="stats" aria-label="Hospital statistics"><div><strong>12+</strong><span>{t.years}</span></div><div><strong>35+</strong><span>{t.specialists}</span></div><div><strong>24/7</strong><span>{t.support}</span></div></section>
+      <section className="stats" aria-label="Hospital statistics"><div><strong>3+</strong><span>{t.years}</span></div><div><strong>35+</strong><span>{t.specialists}</span></div><div><strong>24/7</strong><span>{t.support}</span></div></section>
 
       <section className="quick section-pad" id="services">
         <div className="section-intro centered"><h2>{t.quickTitle}</h2><p>{t.quickP}</p></div>
@@ -126,11 +301,19 @@ export default function App() {
       </section>
 
       <section className="doctor-section section-pad" id="doctors">
-        <div className="doctor-heading"><div className="section-intro"><span className="kicker">{t.doctorsEyebrow}</span><h2>{t.doctorsTitle}</h2><p>{t.doctorsP}</p></div><label className="search"><Icon name="search" size={20}/><input value={query} onChange={e => setQuery(e.target.value)} placeholder={t.search}/></label></div>
-        <div className="doctor-grid">{filteredDoctors.map((doctor, index) => <article className="doctor-card" key={doctor.initials}>
-          <div className={`doctor-photo portrait-${index}`}><span>{doctor.initials}</span><b className={doctor.time === 'available' ? 'online' : ''}>{doctor.time === 'available' ? t.available : t.next}</b></div>
-          <div className="doctor-body"><h3>{doctor.name[lang]}</h3><p>{doctor.role[lang]}</p><small>{doctor.exp}</small><div><button className="profile-button">{t.view}</button><button className="doctor-book" onClick={openBooking}>{t.book}<Icon name="arrow" size={16}/></button></div></div>
-        </article>)}{!filteredDoctors.length && <p className="no-results">{t.noDoctors}</p>}</div>
+        <div className="doctor-heading"><div className="section-intro"><span className="kicker">{t.doctorsEyebrow}</span><h2>{t.doctorsTitle}</h2><p>{t.doctorsP}</p></div><div className="doctor-tools"><button className="see-list" onClick={() => setDoctorListOpen(true)}>{lang === 'en' ? 'See full list' : 'সম্পূর্ণ তালিকা'}<Icon name="arrow" size={17}/></button></div></div>
+        <div className="doctor-flow" aria-label="Scrolling doctor list">
+          <div className="doctor-track">{flowDoctors.map((doctor, index) => <article className="doctor-flow-card" key={`${doctor.initials}-${index}`}>
+            <div className="doctor-photo"><img src={asset(`doctors/doctor-${doctor.initials}.png`)} alt="" loading="lazy"/></div>
+            <div className="doctor-card-top"><span>{doctor.initials}</span><b>{doctor.schedule[lang]}</b></div>
+            <h3>{doctor.name[lang]}</h3>
+            <p>{doctor.role[lang]}</p>
+            <small>{doctor.exp}</small>
+            <em>{doctor.services[lang]}</em>
+            <button className="doctor-book" onClick={openBooking}>{t.book}<Icon name="arrow" size={16}/></button>
+          </article>)}</div>
+        </div>
+        {!filteredDoctors.length && <p className="no-results">{t.noDoctors}</p>}
       </section>
 
       <section className="package-section section-pad" id="packages">
@@ -186,6 +369,8 @@ export default function App() {
     </main>
 
     <footer className="footer"><div className="footer-main"><div className="footer-brand"><a className="brand inverted" href="#home"><img src={asset("bright-health-logo.png")} alt=""/><span><strong>BRIGHT HEALTH</strong><small>SPECIALIZED HOSPITAL</small></span></a><p>{t.footerP}</p><a href={`tel:${HOTLINE}`}>{HOTLINE}</a></div><div><h3>{t.footerHeadings[0]}</h3>{t.hospitalLinks.map((x, i) => <button key={x} onClick={() => scrollTo(footerHospitalTargets[i])}>{x}</button>)}</div><div><h3>{t.footerHeadings[1]}</h3>{t.patientLinks.map((x, i) => <button key={x} onClick={footerPatientActions[i]}>{x}</button>)}</div><div className="footer-cta"><h3>{t.always}</h3><p>{t.alwaysP}</p><a href={`tel:${HOTLINE}`}><Icon name="phone" size={17}/>{HOTLINE}</a></div></div><div className="footer-bottom"><span>{t.copyright}</span><button onClick={() => setLang(lang === 'en' ? 'bn' : 'en')}>{t.language}</button></div></footer>
+
+    {doctorListOpen && <div className="doctor-screen" role="dialog" aria-modal="true" aria-labelledby="doctor-list-title"><div className="doctor-screen-head"><div><span className="kicker">{t.doctorsEyebrow}</span><h2 id="doctor-list-title">{lang === 'en' ? 'Full specialist list' : 'সম্পূর্ণ ডাক্তার তালিকা'}</h2></div><button className="modal-close" onClick={() => setDoctorListOpen(false)} aria-label={t.close}><Icon name="close"/></button></div><div className="doctor-full-grid">{filteredDoctors.map((doctor, index) => <article className="doctor-full-card" key={doctor.initials}><div className="doctor-full-photo"><img src={asset(`doctors/doctor-${doctor.initials}.png`)} alt="" loading="lazy"/><span>{doctor.initials}</span></div><div><h3>{doctor.name[lang]}</h3><p>{doctor.role[lang]}</p><small>{doctor.exp}</small><b>{doctor.schedule[lang]}</b><em>{doctor.services[lang]}</em><button className="doctor-book" onClick={openBooking}>{t.book}<Icon name="arrow" size={16}/></button></div></article>)}</div></div>}
 
     {modal && <div className="modal-backdrop" role="presentation" onMouseDown={e => e.target === e.currentTarget && setModal(false)}><div className="modal" role="dialog" aria-modal="true" aria-labelledby="booking-title"><button className="modal-close" onClick={() => setModal(false)} aria-label={t.close}><Icon name="close"/></button>{sent ? <div className="success"><span><Icon name="check" size={34}/></span><h2>{t.sent}</h2><button className="button primary" onClick={() => setModal(false)}>{t.close}</button></div> : <><span className="kicker">{t.appointment}</span><h2 id="booking-title">{t.modalTitle}</h2><p>{t.modalP}</p><form onSubmit={e => { e.preventDefault(); setSent(true) }}><label>{t.name}<input required autoFocus /></label><label>{t.phone}<input required type="tel" inputMode="tel"/></label><label>{t.specialty}<select required defaultValue=""><option value="" disabled>—</option>{t.departments.slice(0,5).map(([x]) => <option key={x}>{x}</option>)}</select></label><button className="button primary" type="submit">{t.submit}<Icon name="arrow" size={18}/></button></form></>}</div></div>}
     <a className="mobile-emergency" href={`tel:${HOTLINE}`}><Icon name="phone" size={18}/>{HOTLINE}</a>
