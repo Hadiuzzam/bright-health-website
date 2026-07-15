@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 const HOTLINE = '01712839990'
 const MAP_URL = 'https://maps.app.goo.gl/zE8xQNJQC1UEsmGC9?g_st=aw'
+const asset = path => `${import.meta.env.BASE_URL}${path}`
 
 const copy = {
   en: {
@@ -86,7 +87,7 @@ export default function App() {
 
   return <div className="site-shell">
     <header className="header">
-      <a className="brand" href="#home" aria-label="Bright Health home"><img src="/bright-health-logo.png" alt="Bright Health logo"/><span><strong>BRIGHT HEALTH</strong><small>SPECIALIZED HOSPITAL</small></span></a>
+      <a className="brand" href="#home" aria-label="Bright Health home"><img src={asset("bright-health-logo.png")} alt="Bright Health logo"/><span><strong>BRIGHT HEALTH</strong><small>SPECIALIZED HOSPITAL</small></span></a>
       <nav className={menu ? 'nav open' : 'nav'} aria-label="Main navigation">
         {['services', 'doctors', 'packages', 'about'].map((id, i) => <button key={id} onClick={() => scrollTo(id)}>{t.nav[i]}</button>)}
         <button className="portal-mobile">{t.portal}</button>
@@ -105,7 +106,7 @@ export default function App() {
           <div className="trust-note"><span className="avatar-stack"><b>MR</b><b>SA</b><b>NH</b></span><span><strong>4.9</strong><span className="stars">★★★★★</span><small>{t.trusted}</small></span></div>
         </div>
         <div className="hero-visual reveal">
-          <div className="hero-image"><img src="/hospital-building.jpg" alt="Bright Health Specialized Hospital building" fetchPriority="high"/><span className="image-shade"/></div>
+          <div className="hero-image"><img src={asset("hospital-building.jpg")} alt="Bright Health Specialized Hospital building" fetchPriority="high"/><span className="image-shade"/></div>
           <div className="emergency-card"><span className="pulse-icon"><Icon name="pulse"/></span><span><small>{t.always}</small><strong>{lang === 'en' ? 'National service · 999' : 'জাতীয় সেবা · ৯৯৯'}</strong></span></div>
           <div className="care-badge"><span>BH</span><p><strong>{lang === 'en' ? 'Care, close by.' : 'সেবা, একদম কাছে।'}</strong><small>{lang === 'en' ? 'Bright Health Hospital' : 'ব্রাইট হেলথ হাসপাতাল'}</small></p></div>
         </div>
@@ -145,17 +146,17 @@ export default function App() {
           <h2>{lang === 'en' ? 'Hospital care, closer than ever.' : 'হাসপাতালের সেবা, আরও কাছে।'}</h2>
           <p>{lang === 'en' ? 'Book appointments, check reports, explore health packages and stay connected with Bright Health from your phone.' : 'ফোন থেকেই অ্যাপয়েন্টমেন্ট বুকিং, রিপোর্ট দেখা, হেলথ প্যাকেজ ও ব্রাইট হেলথের সাথে দ্রুত যোগাযোগ করুন।'}</p>
           <div className="store-buttons">
-            <button aria-label="Download on the App Store"><img src="/app-store-badge.png" alt="Download on the App Store"/></button>
-            <button aria-label="Get it on Google Play"><img src="/google-play-badge.png" alt="Get it on Google Play"/></button>
+            <button aria-label="Download on the App Store"><img src={asset("app-store-badge.png")} alt="Download on the App Store"/></button>
+            <button aria-label="Get it on Google Play"><img src={asset("google-play-badge.png")} alt="Get it on Google Play"/></button>
           </div>
         </div>
         <div className="app-visual">
-          <img src="/app-phones.png" alt="Bright Health app preview" loading="lazy"/>
+          <img src={asset("app-phones.png")} alt="Bright Health app preview" loading="lazy"/>
         </div>
       </section>
 
       <section className="why section-pad" id="about">
-        <div className="why-visual"><img src="/hospital-building.jpg" alt="Hospital entrance" loading="lazy"/><div className="quote-card"><span>“</span><p>{lang === 'en' ? 'Every patient deserves to feel heard, informed and cared for.' : 'প্রতিটি রোগীর কথা মন দিয়ে শোনা, বোঝানো ও যত্ন পাওয়ার অধিকার আছে।'}</p></div></div>
+        <div className="why-visual"><img src={asset("hospital-building.jpg")} alt="Hospital entrance" loading="lazy"/><div className="quote-card"><span>“</span><p>{lang === 'en' ? 'Every patient deserves to feel heard, informed and cared for.' : 'প্রতিটি রোগীর কথা মন দিয়ে শোনা, বোঝানো ও যত্ন পাওয়ার অধিকার আছে।'}</p></div></div>
         <div className="why-copy section-intro"><span className="kicker">{t.whyEyebrow}</span><h2>{t.whyTitle}</h2><p>{t.whyP}</p><div className="reason-list">{t.reasons.map(([title, sub], i) => <article key={title}><span>0{i + 1}</span><div><h3>{title}</h3><p>{sub}</p></div></article>)}</div></div>
       </section>
 
@@ -184,7 +185,7 @@ export default function App() {
       </section>
     </main>
 
-    <footer className="footer"><div className="footer-main"><div className="footer-brand"><a className="brand inverted" href="#home"><img src="/bright-health-logo.png" alt=""/><span><strong>BRIGHT HEALTH</strong><small>SPECIALIZED HOSPITAL</small></span></a><p>{t.footerP}</p><a href={`tel:${HOTLINE}`}>{HOTLINE}</a></div><div><h3>{t.footerHeadings[0]}</h3>{t.hospitalLinks.map((x, i) => <button key={x} onClick={() => scrollTo(footerHospitalTargets[i])}>{x}</button>)}</div><div><h3>{t.footerHeadings[1]}</h3>{t.patientLinks.map((x, i) => <button key={x} onClick={footerPatientActions[i]}>{x}</button>)}</div><div className="footer-cta"><h3>{t.always}</h3><p>{t.alwaysP}</p><a href={`tel:${HOTLINE}`}><Icon name="phone" size={17}/>{HOTLINE}</a></div></div><div className="footer-bottom"><span>{t.copyright}</span><button onClick={() => setLang(lang === 'en' ? 'bn' : 'en')}>{t.language}</button></div></footer>
+    <footer className="footer"><div className="footer-main"><div className="footer-brand"><a className="brand inverted" href="#home"><img src={asset("bright-health-logo.png")} alt=""/><span><strong>BRIGHT HEALTH</strong><small>SPECIALIZED HOSPITAL</small></span></a><p>{t.footerP}</p><a href={`tel:${HOTLINE}`}>{HOTLINE}</a></div><div><h3>{t.footerHeadings[0]}</h3>{t.hospitalLinks.map((x, i) => <button key={x} onClick={() => scrollTo(footerHospitalTargets[i])}>{x}</button>)}</div><div><h3>{t.footerHeadings[1]}</h3>{t.patientLinks.map((x, i) => <button key={x} onClick={footerPatientActions[i]}>{x}</button>)}</div><div className="footer-cta"><h3>{t.always}</h3><p>{t.alwaysP}</p><a href={`tel:${HOTLINE}`}><Icon name="phone" size={17}/>{HOTLINE}</a></div></div><div className="footer-bottom"><span>{t.copyright}</span><button onClick={() => setLang(lang === 'en' ? 'bn' : 'en')}>{t.language}</button></div></footer>
 
     {modal && <div className="modal-backdrop" role="presentation" onMouseDown={e => e.target === e.currentTarget && setModal(false)}><div className="modal" role="dialog" aria-modal="true" aria-labelledby="booking-title"><button className="modal-close" onClick={() => setModal(false)} aria-label={t.close}><Icon name="close"/></button>{sent ? <div className="success"><span><Icon name="check" size={34}/></span><h2>{t.sent}</h2><button className="button primary" onClick={() => setModal(false)}>{t.close}</button></div> : <><span className="kicker">{t.appointment}</span><h2 id="booking-title">{t.modalTitle}</h2><p>{t.modalP}</p><form onSubmit={e => { e.preventDefault(); setSent(true) }}><label>{t.name}<input required autoFocus /></label><label>{t.phone}<input required type="tel" inputMode="tel"/></label><label>{t.specialty}<select required defaultValue=""><option value="" disabled>—</option>{t.departments.slice(0,5).map(([x]) => <option key={x}>{x}</option>)}</select></label><button className="button primary" type="submit">{t.submit}<Icon name="arrow" size={18}/></button></form></>}</div></div>}
     <a className="mobile-emergency" href={`tel:${HOTLINE}`}><Icon name="phone" size={18}/>{HOTLINE}</a>
